@@ -5,11 +5,11 @@
 
 > 사고 이력 : https://github.com/jypstory/bigdata_tech_lecture/raw/master/sample_data/DfTRoadSafety_Accidents.zip
 
-> 사상자 정보 : https://github.com/jypstory/bigdata_tech_lecture/blob/master/sample_data/DfTRoadSafety_Casualties.zip
+> 사상자 정보 : https://github.com/jypstory/bigdata_tech_lecture/raw/master/sample_data/DfTRoadSafety_Casualties.zip
 
-> 지역 코드 : https://github.com/jypstory/bigdata_tech_lecture/blob/master/sample_data/DfTRoadSafety_District.zip
+> 지역 코드 : https://github.com/jypstory/bigdata_tech_lecture/raw/master/sample_data/DfTRoadSafety_District.zip
 
-> 데이터 활용 가이드 : https://github.com/jypstory/bigdata_tech_lecture/blob/master/sample_data/Road-Accident-Safety-Data-Guide.xls
+> 데이터 활용 가이드 : https://github.com/jypstory/bigdata_tech_lecture/raw/master/sample_data/Road-Accident-Safety-Data-Guide.xls
 
 <br>
 
