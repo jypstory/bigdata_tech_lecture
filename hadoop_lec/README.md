@@ -3,7 +3,7 @@
 ## 실습 데이터 받기
 - 실습 데이터 (영국 교통사고 데이터)
 
-> 사고 이력 : https://github.com/jypstory/bigdata_tech_lecture/blob/master/sample_data/DfTRoadSafety_Accidents.zip
+> 사고 이력 : https://github.com/jypstory/bigdata_tech_lecture/raw/master/sample_data/DfTRoadSafety_Accidents.zip
 
 > 사상자 정보 : https://github.com/jypstory/bigdata_tech_lecture/blob/master/sample_data/DfTRoadSafety_Casualties.zip
 
