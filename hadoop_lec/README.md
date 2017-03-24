@@ -1,5 +1,5 @@
 # bigdata_tech_lecture
-==================
+
 ## 실습 데이터 받기
 - 실습 데이터 (영국 교통사고 데이터)
 > 사고 이력 : https://github.com/jypstory/bigdata_tech_lecture/sample_data/DfTRoadSafety_Accidents.zip
