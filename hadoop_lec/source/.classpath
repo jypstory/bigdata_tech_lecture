@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/curator-client-2.7.1.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/curator-framework-2.7.1.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/curator-recipes-2.7.1.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-annotations-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-auth-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-common-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-hdfs-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-mapreduce-client-app-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-mapreduce-client-common-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-mapreduce-client-core-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-mapreduce-client-jobclient-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-mapreduce-client-shuffle-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-yarn-api-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-yarn-client-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-yarn-common-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-yarn-registry-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/myData/300.교육관련/100.빅데이터 교육(사내_사외)/100.기술_사내강의 교재/bigdata_tech_lecture/hadoop_lec/hadoop_lib/hadoop-yarn-server-common-2.7.1.2.4.0.0-169.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
