@@ -121,8 +121,10 @@ hadoop-mapreduce-client-app-2.7.3.2.5.0.0-1245.jar  hadoop-yarn-api-2.7.3.2.5.0.
 > wincp : https://winscp.net/eng/download.php<br>
 > filezilla : https://filezilla-project.org/
 
-> hadoop jar파일 바로 다운로드 
- 
+> hadoop jar파일 바로 다운로드 <br>
+> url : https://github.com/jypstory/bigdata_tech_lecture/raw/master/hadoop_lec/hadoop_lib/hadoop_lib.zip
+
+
 ### Eclipse에서 프로그램 작성
 - hadoop lec 프로젝트 생성   
 - Eclipse에서 hadoop jar 파일 외부  라이브러리 등록
@@ -202,41 +204,94 @@ Found 2 items
 </code>
 </pre>
 
-
-
-
-
-
-
+## hdfs 실습 - MR
 - MapReduce Application 다운로드
 
-> http://github.com/longnym/lecture/raw/master/build/hadoop_ex01.jar
-
-> http://github.com/longnym/lecture/raw/master/build/hadoop_ex02.jar
-
-> http://github.com/longnym/lecture/raw/master/build/hadoop_ex03.jar
 
 <br>
+> 다운로드 받은 jar 파일을 sandbox의 /home/hdfs/hadoop_edu/jar 폴더로 복사 
 
 - Driver Class의 실행 (실습 1)
+<pre><code>
+[hdfs@sandbox jar]$ cd /home/hdfs/hadoop_edu/jar
+[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar skill.coach01.TestDriver -D inputPath=/home/hdfs/input/acc/Accidents_2005_2015.csv -D outputPath=/home/hdfs/output/result01 -D numberReduceTesks=3
+</code></pre>
 
->hadoop jar hadoop_ex01.jar -D inputPath=/input/acc/Accidents_2005_2015.csv -D outputPath=/output/result01 -D numReduceTasks=3 skill.coach.TestDriver
+- input file 확인     
+<pre><code>
+[hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/input/acc/Accidents_2005_2015.csv
+9,566993,-3.136722,54.992202,98,3,2,1,01/12/2015,3,17:15,917,S12000006,3,75,6,60,0,-1,-1,0,0,0,6,4,2,0,0,2,1,
+2015984137615,319301,566593,-3.262676,54.987365,98,3,2,1,02/12/2015,4,16:30,917,S12000006,4,721,6,30,0,-1,-1,0,0,5,4,2,2,0,0,2,1,
+2015984139015,304440,580166,-3.499388,55.106659,98,3,1,1,13/12/2015,1,02:30,917,S12000006,3,709,6,60,0,-1,-1,0,0,0,6,7,4,0,0,2,2,
+2015984139115,312087,570791,-3.376671,55.023855,98,3,3,1,11/12/2015,6,13:24,917,S12000006,3,75,6,60,0,-1,-1,0,0,0,1,1,2,0,0,2,1,
+2015984139715,320671,569791,-3.242159,55.016316,98,3,2,1,02/12/2015,4,13:50,917,S12000006,4,722,6,60,3,4,6,0,0,0,1,1,2,0,0,2,1,
+2015984140215,311731,586343,-3.387067,55.163502,98,2,1,4,23/12/2015,4,00:01,917,S12000006,2,74,3,70,0,-1,-1,0,0,0,6,4,2,0,0,2,1,
+2015984140515,328273,570137,-3.123385,55.020580,98,3,3,3,26/12/2015,7,12:40,917,S12000006,4,7076,6,60,5,4,2,74,0,0,1,2,2,0,0,2,1,
+2015984141415,314050,579638,-3.348646,55.103676,98,3,13,7,31/12/2015,5,16:37,917,S12000006,2,74,3,70,0,-1,-1,0,0,0,6,3,4,0,0,2,1,
+
+- check output file
+<pre><code>
+hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/output/result01/part-r-00000
+2007:9 = 4115
+2008:1 = 132513
+2008:2 = 21984
+2008:3 = 719
+2008:4 = 2861
+</code></pre>
 
 <br>
 
 - Driver Class의 실행 (실습 2)
+<pre><code>
+[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar skill.coach02.TestDriver -D inputPath=/home/hdfs/input/acc/Accidents_2005_2015.csv -D outputPath=/home/hdfs/output/result02 -D numberReduceTesks=3
+</code></pre>
 
->hadoop jar hadoop_ex02.jar -D inputPath=/input/acc/Accidents_2005_2015.csv -D outputPath=/output/result02 -D numReduceTasks=3 skill.coach.TestDriver
+- check output file
+<pre><code>
+[hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/output/result02/part-r-00000
 
-<br>
+2007:9 = 4115
+2008:1 = 132513
+2008:2 = 21984
+2008:3 = 719
+2008:4 = 2861
+2008:5 = 3130
+</code></pre>
+
+
+## hdfs 실습 - Join
+- copy District.txt file to sandbox
+<pre><code>
+[hdfs@sandbox data]$ hadoop fs -mkdir -p /home/hdfs/input/dist
+[hdfs@sandbox data]$ hadoop fs -copyFromLocal ./District.txt /home/hdfs/input/dist/.
+[hdfs@sandbox data]$ hadoop fs -ls /home/hdfs/input/dist
+Found 1 items
+-rw-r--r--   1 hdfs hdfs       6628 2017-03-25 14:21 /home/hdfs/input/dist/District.txt
+</code></pre>
+
 
 - Driver Class의 실행 (실습 3)
+<pre><code>
+[hdfs@sandbox ~]$ cd /home/hdfs/hadoop_edu/jar
+[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar skill.coach03.TestDriver -D inputPath1=/home/hdfs/input/acc/Accidents_2005_2015.csv -D inputPath2=/home/hdfs/input/cas/Casualties_2005_2015.csv -D cachePath=/home/hdfs/input/dist/District.txt -D tempPath=/home/hdfs/output/result03_1 -D outputPath=/home/hdfs/output/result03_2 -D numReduceTasks=3
+</code></pre>
 
->hadoop jar hadoop_ex03.jar -D inputPath1=/input/acc/Accidents_2005_2015.csv -D inputPath2=/input/cas/Casualties_2005_2015.csv -D cachePath=/input/dis/District.txt -D tempPath=/output/result03_1 -D outputPath=/output/result03_2 -D numReduceTasks=3 skill.coach.TestDriver
+- check output file
+<pre><code>
+[hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/output/result03_2/part-r-00000
+Swale,Male : 3331
+Swansea,Female : 4443
+Swansea,Male : 5234
+Tandridge,Female : 2628
+Teesdale,Male : 284
+Teignbridge,Female : 2229
+Teignbridge,Male : 3218
+</code></pre>
 
 <br>
 
-- Yarn Application의 실행
+## Yarn Application의 실행
+
 
 >yarn jar simple-yarn-app-1.1.0.jar com.hortonworks.simpleyarnapp.Client /bin/date 2 hdfs:///test/simple-yarn-app-1.1.0.jar
 
