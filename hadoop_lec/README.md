@@ -95,6 +95,114 @@ rmr: DEPRECATED: Please use 'rm -r' instead.
 </code></pre>
 
 ## hdfs 실습 - HDFS API 활용
+### 개발환경 세팅
+- Ecllipse 다운로드
+
+> URL : http://www.eclipse.org/downloads/packages/release/Luna/SR2
+
+- workspace 생성 (각자 적절한 위치에 생성함)
+<pre><code>
+# eclipse 에서 workspace 지정
+/Users/josh/myWorkspace/hadoop_lec
+
+# hadoop lib 복사 
+[hdfs@sandbox hadoop_edu]$ cp /usr/hdp/current/hadoop-client/client/*2.7.3.* /home/hdfs/hadoop_edu/lib
+[hdfs@sandbox hadoop_edu]$ cd lib
+[hdfs@sandbox lib]$ ls
+hadoop-annotations-2.7.3.2.5.0.0-1245.jar           hadoop-mapreduce-client-common-2.7.3.2.5.0.0-1245.jar     hadoop-yarn-client-2.7.3.2.5.0.0-1245.jar
+hadoop-auth-2.7.3.2.5.0.0-1245.jar                  hadoop-mapreduce-client-core-2.7.3.2.5.0.0-1245.jar       hadoop-yarn-common-2.7.3.2.5.0.0-1245.jar
+hadoop-common-2.7.3.2.5.0.0-1245.jar                hadoop-mapreduce-client-jobclient-2.7.3.2.5.0.0-1245.jar  hadoop-yarn-registry-2.7.3.2.5.0.0-1245.jar
+hadoop-hdfs-2.7.3.2.5.0.0-1245.jar                  hadoop-mapreduce-client-shuffle-2.7.3.2.5.0.0-1245.jar    hadoop-yarn-server-common-2.7.3.2.5.0.0-1245.jar
+hadoop-mapreduce-client-app-2.7.3.2.5.0.0-1245.jar  hadoop-yarn-api-2.7.3.2.5.0.0-1245.jar
+</code></pre>
+
+- ftp 프로그램으로 jar파일을 hadoop_lec 폴더로 이동
+> ftp 프로그램 url : 아래중 선택 <br> 
+> wincp : https://winscp.net/eng/download.php<br>
+> filezilla : https://filezilla-project.org/
+
+> hadoop jar파일 바로 다운로드 
+ 
+### Eclipse에서 프로그램 작성
+- hadoop lec 프로젝트 생성   
+- Eclipse에서 hadoop jar 파일 외부  라이브러리 등록
+- class 생성 및 코드 작성 "HdfsTest"
+<pre><code>
+package hdfs;
+
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FSDataOutputStream;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+
+public class HdfsTest {
+
+	public static void main(String[] args) {
+		try {
+			Configuration conf = new Configuration();
+			FileSystem hdfs = FileSystem.get(conf);
+			Path inputPath = new Path("/user/hdfs/input/acc/Accidents_2005_2015.csv");
+			Path outputPath = new Path("/user/hdfs/input/acc/Accidents_2005_2015_sun.csv");
+			FSDataOutputStream outStream = hdfs.create(outputPath);
+			BufferedReader br = new BufferedReader(new InputStreamReader(hdfs.open(inputPath)));
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				String[] fields = line.split(",");
+				if (fields[10].equals("1")) {
+					outStream.writeUTF(line + "\n");
+				}
+			}
+			outStream.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+</code></pre>
+
+- hadoop jar 파일 생성   
+> export > java > jar file > hadoop_lec.jar 
+
+- hadoop_lec.jar 파일 실행을 위해 서버로 복사
+> 위치 : /home/hdfs/hadoop_edu/jar
+
+- run hdfs
+<pre><code>
+[hdfs@sandbox jar]$ cd /home/hdfs/hadoop_edu/jar
+[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar HdfsTest
+[hdfs@sandbox jar]$ hadoop fs -ls /user/hdfs/input/acc/
+Found 2 items
+-rw-r--r--   1 hdfs hdfs  244379141 2017-03-25 12:03 /user/hdfs/input/acc/Accidents_2005_2015.csv
+-rw-r--r--   1 hdfs hdfs   27012378 2017-03-25 13:06 /user/hdfs/input/acc/Accidents_2005_2015_sun.csv
+
+#input 확인
+[hdfs@sandbox jar]$ hadoop fs -tail /user/hdfs/input/acc/Accidents_2005_2015.csv
+9,566993,-3.136722,54.992202,98,3,2,1,01/12/2015,3,17:15,917,S12000006,3,75,6,60,0,-1,-1,0,0,0,6,4,2,0,0,2,1,
+2015984137615,319301,566593,-3.262676,54.987365,98,3,2,1,02/12/2015,4,16:30,917,S12000006,4,721,6,30,0,-1,-1,0,0,5,4,2,2,0,0,2,1,
+2015984139015,304440,580166,-3.499388,55.106659,98,3,1,1,13/12/2015,1,02:30,917,S12000006,3,709,6,60,0,-1,-1,0,0,0,6,7,4,0,0,2,2,
+2015984139115,312087,570791,-3.376671,55.023855,98,3,3,1,11/12/2015,6,13:24,917,S12000006,3,75,6,60,0,-1,-1,0,0,0,1,1,2,0,0,2,1,
+2015984139715,320671,569791,-3.242159,55.016316,98,3,2,1,02/12/2015,4,13:50,917,S12000006,4,722,6,60,3,4,6,0,0,0,1,1,2,0,0,2,1,
+2015984140215,311731,586343,-3.387067,55.163502,98,2,1,4,23/12/2015,4,00:01,917,S12000006,2,74,3,70,0,-1,-1,0,0,0,6,4,2,0,0,2,1,
+2015984140515,328273,570137,-3.123385,55.020580,98,3,3,3,26/12/2015,7,12:40,917,S12000006,4,7076,6,60,5,4,2,74,0,0,1,2,2,0,0,2,1,
+2015984141415,314050,579638,-3.348646,55.103676,98,3,13,7,31/12/2015,5,16:37,917,S12000006,2,74,3,70,0,-1,-1,0,0,0,6,3,4,0,0,2,1,
+
+#output 확인
+[hdfs@sandbox jar]$ hadoop fs -tail /user/hdfs/input/acc/Accidents_2005_2015_sun.csv
+46,585331,-2.997407,55.158219,98,2,1,1,19/07/2015,1,13:50,917,S12000006,3,7,9,30,3,4,6,0,0,0,1,1,2,7,0,2,1,
+�2015984123615,331519,567775,-3.072060,54.999817,98,3,1,1,12/07/2015,1,17:00,917,S12000006,3,75,3,70,0,-1,-1,0,0,0,1,1,1,0,0,2,1,
+2015984125315,330469,568884,-3.088740,55.009635,98,1,1,5,02/08/2015,1,19:05,917,S12000006,2,74,3,70,5,4,6,0,0,0,1,1,1,0,0,2,1,
+�2015984127515,319848,566515,-3.254108,54.986752,98,3,2,1,23/08/2015,1,14:00,917,S12000006,4,721,6,30,3,4,6,0,0,0,1,1,1,0,0,2,2,
+�2015984128215,327982,570650,-3.128065,55.025147,98,1,1,2,30/08/2015,1,06:00,917,S12000006,2,74,3,70,0,-1,-1,0,0,0,1,1,1,0,0,2,1,
+�2015984130315,312312,605860,-3.384031,55.338930,98,3,2,1,27/09/2015,1,13:50,917,S12000006,3,708,6,60,0,-1,-1,0,0,0,1,1,1,0,0,2,2,
+�2015984131215,328774,567001,-3.114769,54.992477,98,3,1,1,27/09/2015,1,06:00,917,S12000006,3,75,6,60,0,-1,-1,0,0,0,6,1,1,0,0,2,1,
+�2015984139015,304440,580166,-3.499388,55.106659,98,3,1,1,13/12/2015,1,02:30,917,S12000006,3,709,6,60,0,-1,-1,0,0,0,6,7,4,0,0,2,2,
+</code>
+</pre>
+
+
 
 
 
