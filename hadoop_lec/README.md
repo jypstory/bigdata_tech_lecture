@@ -206,7 +206,7 @@ Found 2 items
 
 ## hdfs 실습 - MR
 - MapReduce Application 다운로드
-
+> wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/build/hadoop_lec.jar
 
 <br>
 > 다운로드 받은 jar 파일을 sandbox의 /home/hdfs/hadoop_edu/jar 폴더로 복사 
