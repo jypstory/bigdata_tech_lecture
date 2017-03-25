@@ -123,7 +123,7 @@ hadoop-mapreduce-client-app-2.7.3.2.5.0.0-1245.jar  hadoop-yarn-api-2.7.3.2.5.0.
 
 > hadoop jar파일 바로 다운로드 <br>
 > url : https://github.com/jypstory/bigdata_tech_lecture/raw/master/hadoop_lec/hadoop_lib/hadoop_lib.zip
-
+        
 
 ### Eclipse에서 프로그램 작성
 - hadoop lec 프로젝트 생성   
@@ -206,7 +206,7 @@ Found 2 items
 
 ## hdfs 실습 - MR
 - MapReduce Application 다운로드
-> wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/build/hadoop_lec.jar
+> wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/hadoop_lec/build/hadoop_lec.jar
 
 <br>
 > 다운로드 받은 jar 파일을 sandbox의 /home/hdfs/hadoop_edu/jar 폴더로 복사 
