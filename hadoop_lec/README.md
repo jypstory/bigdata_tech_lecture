@@ -214,12 +214,12 @@ Found 2 items
 - Driver Class의 실행 (실습 1)
 <pre><code>
 [hdfs@sandbox jar]$ cd /home/hdfs/hadoop_edu/jar
-[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar skill.coach01.TestDriver -D inputPath=/home/hdfs/input/acc/Accidents_2005_2015.csv -D outputPath=/home/hdfs/output/result01 -D numberReduceTesks=3
+[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar skill.coach01.TestDriver -D inputPath=/user/hdfs/input/acc/Accidents_2005_2015.csv -D outputPath=/user/hdfs/output/result01 -D numberReduceTesks=3
 </code></pre>
 
 - input file 확인     
 <pre><code>
-[hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/input/acc/Accidents_2005_2015.csv
+[hdfs@sandbox jar]$ hadoop fs -tail /user/hdfs/input/acc/Accidents_2005_2015.csv
 9,566993,-3.136722,54.992202,98,3,2,1,01/12/2015,3,17:15,917,S12000006,3,75,6,60,0,-1,-1,0,0,0,6,4,2,0,0,2,1,
 2015984137615,319301,566593,-3.262676,54.987365,98,3,2,1,02/12/2015,4,16:30,917,S12000006,4,721,6,30,0,-1,-1,0,0,5,4,2,2,0,0,2,1,
 2015984139015,304440,580166,-3.499388,55.106659,98,3,1,1,13/12/2015,1,02:30,917,S12000006,3,709,6,60,0,-1,-1,0,0,0,6,7,4,0,0,2,2,
@@ -232,7 +232,7 @@ Found 2 items
 
 - check output file
 <pre><code>
-hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/output/result01/part-r-00000
+hdfs@sandbox jar]$ hadoop fs -tail /user/hdfs/output/result01/part-r-00000
 2007:9 = 4115
 2008:1 = 132513
 2008:2 = 21984
@@ -244,12 +244,12 @@ hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/output/result01/part-r-00000
 
 - Driver Class의 실행 (실습 2)
 <pre><code>
-[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar skill.coach02.TestDriver -D inputPath=/home/hdfs/input/acc/Accidents_2005_2015.csv -D outputPath=/home/hdfs/output/result02 -D numberReduceTesks=3
+[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar skill.coach02.TestDriver -D inputPath=/user/hdfs/input/acc/Accidents_2005_2015.csv -D outputPath=/user/hdfs/output/result02 -D numberReduceTesks=3
 </code></pre>
 
 - check output file
 <pre><code>
-[hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/output/result02/part-r-00000
+[hdfs@sandbox jar]$ hadoop fs -tail /user/hdfs/output/result02/part-r-00000
 
 2007:9 = 4115
 2008:1 = 132513
@@ -263,23 +263,23 @@ hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/output/result01/part-r-00000
 ## hdfs 실습 - Join
 - copy District.txt file to sandbox
 <pre><code>
-[hdfs@sandbox data]$ hadoop fs -mkdir -p /home/hdfs/input/dist
-[hdfs@sandbox data]$ hadoop fs -copyFromLocal ./District.txt /home/hdfs/input/dist/.
-[hdfs@sandbox data]$ hadoop fs -ls /home/hdfs/input/dist
+[hdfs@sandbox data]$ hadoop fs -mkdir -p /user/hdfs/input/dist
+[hdfs@sandbox data]$ hadoop fs -copyFromLocal ./District.txt /user/hdfs/input/dist/.
+[hdfs@sandbox data]$ hadoop fs -ls /user/hdfs/input/dist
 Found 1 items
--rw-r--r--   1 hdfs hdfs       6628 2017-03-25 14:21 /home/hdfs/input/dist/District.txt
+-rw-r--r--   1 hdfs hdfs       6628 2017-03-25 14:21 /user/hdfs/input/dist/District.txt
 </code></pre>
 
 
 - Driver Class의 실행 (실습 3)
 <pre><code>
 [hdfs@sandbox ~]$ cd /home/hdfs/hadoop_edu/jar
-[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar skill.coach03.TestDriver -D inputPath1=/home/hdfs/input/acc/Accidents_2005_2015.csv -D inputPath2=/home/hdfs/input/cas/Casualties_2005_2015.csv -D cachePath=/home/hdfs/input/dist/District.txt -D tempPath=/home/hdfs/output/result03_1 -D outputPath=/home/hdfs/output/result03_2 -D numReduceTasks=3
+[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar skill.coach03.TestDriver -D inputPath1=/user/hdfs/input/acc/Accidents_2005_2015.csv -D inputPath2=/user/hdfs/input/cas/Casualties_2005_2015.csv -D cachePath=/user/hdfs/input/dist/District.txt -D tempPath=/user/hdfs/output/result03_1 -D outputPath=/user/hdfs/output/result03_2 -D numReduceTasks=3
 </code></pre>
 
 - check output file
 <pre><code>
-[hdfs@sandbox jar]$ hadoop fs -tail /home/hdfs/output/result03_2/part-r-00000
+[hdfs@sandbox jar]$ hadoop fs -tail /user/hdfs/output/result03_2/part-r-00000
 Swale,Male : 3331
 Swansea,Female : 4443
 Swansea,Male : 5234
