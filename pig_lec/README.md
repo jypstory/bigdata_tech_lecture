@@ -1,4 +1,4 @@
-#pig lecture
+# pig lecture
 
 - 일자별 count 하기
 <pre><code>
