@@ -1,5 +1,6 @@
 # airport.dat
 
+<pre><code>
 	Name	Description
 1	Year	1987-2008
 2	Month	1-12
@@ -30,11 +31,12 @@
 27	NASDelay	in minutes
 28	SecurityDelay	in minutes
 29	LateAircraftDelay	in minutes
-
+</code></pre>
 
 
 # airline.dat
 
+<pre><code>
 Airline ID	Unique OpenFlights identifier for this airline.
 Name	Name of the airline.
 Alias	Alias of the airline. For example, All Nippon Airways is commonly known as "ANA".
@@ -43,3 +45,4 @@ ICAO	3-letter ICAO code, if available.
 Callsign	Airline callsign.
 Country	Country or territory where airline is incorporated.
 Active	"Y" if the airline is or has until recently been operational, "N" if it is defunct. This field is not reliable: in particular, major airlines that stopped flying long ago, but have not had their IATA code reassigned (eg. Ansett/AN), will incorrectly show as "Y".
+</code></pre>
