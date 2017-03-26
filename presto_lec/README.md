@@ -1,5 +1,5 @@
 # presto_lecture
-
+## presto 
 - install presto
 
 > wget https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.169/presto-server-0.169.tar.gz <br>
@@ -72,10 +72,37 @@ connection-password=hadoop
 
 - start presto-server
 > cd bin <br>
-launcher start <br>
+./launcher start <br>
 http://localhost:9090
 
 - connect presto-cli
 > cd bin <br>
 ./presto --server localhost:9090 --catalog hive
+
+## presto 실습
+- query (hive)
+<pre><code>
+presto> help
+
+presto> show catalogs;
+
+presto> show schemas;
+       Schema
+--------------------
+ default
+ foodmart
+ information_schema
+ xademo
+(4 rows)
+
+presto> use default;
+presto:default> show tables;
+   Table
+-----------
+ orders
+ sample_07
+ sample_08
+(3 rows)
+
+
 
