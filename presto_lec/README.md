@@ -124,3 +124,5 @@ presto:foodmart> select * from customer limit 10;
 
 
 
+- presto function
+https://prestodb.io/docs/current/functions.html 
