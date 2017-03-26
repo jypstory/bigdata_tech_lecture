@@ -1,4 +1,4 @@
-# hadoop 강의
+# hadoop lecture
 ## hdfs 실습 - 명령어
 
 - 사용자 계정 변경 (hdfs 서비스를 시작한 계정이 hdfs 에서의 superuser임)
@@ -290,14 +290,3 @@ Teignbridge,Male : 3218
 </code></pre>
 
 <br>
-
-## Yarn Application의 실행
-
-
->yarn jar simple-yarn-app-1.1.0.jar com.hortonworks.simpleyarnapp.Client /bin/date 2 hdfs:///test/simple-yarn-app-1.1.0.jar
-
-<br>
-
-
-
-
