@@ -1,5 +1,4 @@
 # airport.dat
-
 <pre><code>
 	Name	Description
 1	Year	1987-2008
