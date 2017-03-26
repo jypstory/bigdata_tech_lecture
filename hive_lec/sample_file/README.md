@@ -37,12 +37,13 @@
 # airline.dat
 
 <pre><code>
-Airline ID  :	Unique OpenFlights identifier for this airline.
-Name	    : Name of the airline.
-Alias	    : Alias of the airline. For example, All Nippon Airways is commonly known as "ANA".
-IATA	    : 2-letter IATA code, if available.
-ICAO	    : 3-letter ICAO code, if available.
-Callsign    : Airline callsign.
-Country	    : Country or territory where airline is incorporated.
-Active	    : "Y" if the airline is or has until recently been operational, "N" if it is defunct. This field is not reliable: in particular, major airlines that stopped flying long ago, but have not had their IATA code reassigned (eg. Ansett/AN), will incorrectly show as "Y".
+     Name	      Description
+1    Airline ID     : Unique OpenFlights identifier for this airline.
+2    Name	    : Name of the airline.
+3    Alias	    : Alias of the airline. For example, All Nippon Airways is commonly known as "ANA".
+4    IATA	    : 2-letter IATA code, if available.
+5    ICAO	    : 3-letter ICAO code, if available.
+6    Callsign       : Airline callsign.
+7    Country	    : Country or territory where airline is incorporated.
+8    Active	    : "Y" if the airline is or has until recently been operational, "N" if it is defunct. This field is not reliable: in particular, major airlines that stopped flying long ago, but have not had their IATA code reassigned (eg. Ansett/AN), will incorrectly show as "Y".
 </code></pre>
