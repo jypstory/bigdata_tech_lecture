@@ -2,24 +2,17 @@
 
 - install presto
 
-> wget https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.169/presto-server-0.169.tar.gz
-
-> tar -zxvf presto-server-0.169.tar.gz
-
-> cd presto-server-0.169
-
-> mkdir data
-
-> mkdir etc
-
-> mkdir etc/catalog
+> wget https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.169/presto-server-0.169.tar.gz <br>
+> tar -zxvf presto-server-0.169.tar.gz <br>
+> cd presto-server-0.169 <br>
+> mkdir data <br>
+> mkdir etc <br>
+> mkdir etc/catalog <br>
 
 
 - create config.properties
-> cd etc
-
+> cd etc <br>
 > vi config.properties
-
 <pre><code>
 coordinator=true
 node-scheduler.include-coordinator=true
@@ -31,10 +24,8 @@ discovery.uri=http://127.0.0.1:9090
 </code></pre>
 
 - create jvm.config
-> cd etc
-
+> cd etc <br>
 > vi jvm.config
-
 <pre><code>
 -server
 -Xmx16G
@@ -47,8 +38,7 @@ discovery.uri=http://127.0.0.1:9090
 </code></pre>
 
 - create node.properties
-> cd etc
-
+> cd etc <br>
 > vi node.properties
 <pre><code>
 node.environment=production
@@ -57,9 +47,7 @@ node.data-dir=/home/hdfs/presto/presto-server-0.169/data
 </code></pre>
 
 - create hive.properties
-
-> cd etc/catalog
-
+> cd etc/catalog <br>
 > vi hive.properties
 <pre><code>
 connector.name=hive-hadoop2
@@ -68,10 +56,8 @@ hive.config.resources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.
 </code></pre>
 
 - create mysql.properties
-> cd etc/catalog
-
+> cd etc/catalog <br>
 > vi mysql.properties 
-
 <pre><code>
 connector.name=mysql
 connection-url=jdbc:mysql://localhost:3306
@@ -80,15 +66,11 @@ connection-password=hadoop
 </code></pre>
 
 - install presto-client
-
-> cd bin
-
-> wget https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.169/presto-cli-0.169-executable.jar
-
+> cd bin <br>
+> wget https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.169/presto-cli-0.169-executable.jar <br>
 > mv presto-cli-0.169-executable.jar presto
 
 - start presto-server
-
 > cd bin <br>
 launcher start <br>
 http://localhost:9090
