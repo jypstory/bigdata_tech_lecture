@@ -1,7 +1,7 @@
 #pig lecture
 
 - 일자별 count 하기
-<pre></code>
+<pre><code>
 A = LOAD '/user/hdfs/input/acc/Accidents_2015.csv' USING PigStorage(',') AS ( 
 Accident_Index:chararray, Location_Easting_OSGR:chararray, Location_Northing_OSGR:chararray, 
 Longitude:chararray, 
