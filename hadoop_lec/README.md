@@ -14,18 +14,18 @@ mkdir data
 cd hadoop_ecu/data
  
 # 영국 교통사고
-wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/sample_data/DfTRoadSafety_Accidents.zip
+wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/hadoop_lec/sample_data/DfTRoadSafety_Accidents.zip
 unzip DfTRoadSafety_Accidents.zip
  
 # 영국 교통사고 사상자 정보
-wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/sample_data/DfTRoadSafety_Casualties.zip
+wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/hadoop_lec/sample_data/DfTRoadSafety_Casualties.zip
 unzip DfTRoadSafety_Casualties.zip
  
 # 지역 코드
-wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/sample_data/DfTRoadSafety_District.zip
+wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/hadoop_lec/sample_data/DfTRoadSafety_District.zip
 unzip DfTRoadSafety_District.zip
 
-# [참고] 데이터 활용 가이드 : https://github.com/jypstory/bigdata_tech_lecture/raw/master/sample_data/Road-Accident-Safety-Data-Guide.xls
+# [참고] 데이터 활용 가이드 : https://github.com/jypstory/bigdata_tech_lecture/raw/master/hadoop_lec/sample_data/Road-Accident-Safety-Data-Guide.xls
 </code></pre>
 <br>
 
