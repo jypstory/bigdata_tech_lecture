@@ -1,10 +1,10 @@
 # hive_lecture
 - reset data
 <pre><code>
-hadoop fs -rm /user/root/input/acc/*
-hadoop fs -copyFromLocal Accidents_2015.csv  /user/root/input/acc
-hadoop fs -rm /user/root/input/cas/*
-hadoop fs -copyFromLocal Casualties_2015.csv  /user/root/input/cas
+hadoop fs -rm /user/hdfs/input/acc/*
+hadoop fs -copyFromLocal Accidents_2015.csv  /user/hdfs/input/acc
+hadoop fs -rm /user/hdfs/input/cas/*
+hadoop fs -copyFromLocal Casualties_2015.csv  /user/hdfs/input/cas
 </code></pre>
 
 - create table
@@ -46,7 +46,7 @@ Did_Police_Officer_Attend_Scene_of_Accident INT,
 Lower_Super_Ouput_Area_of_Accident_Location STRING 
 ) 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ","
-LOCATION '/user/root/input/acc';
+LOCATION '/user/hdfs/input/acc';
  
  
  
@@ -67,7 +67,7 @@ Casualty_Type INT,
 Casualty_Home_Area_Type INT 
 ) 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ","
-LOCATION '/user/root/input/cas';
+LOCATION '/user/hdfs/input/cas';
 </code></pre>
 
 - 년도 및 기상조건 별 건수 확인
