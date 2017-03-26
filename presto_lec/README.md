@@ -1,5 +1,6 @@
 # presto_lecture
-## presto 
+## presto 설치    
+
 - install presto
 
 > wget https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.169/presto-server-0.169.tar.gz <br>
