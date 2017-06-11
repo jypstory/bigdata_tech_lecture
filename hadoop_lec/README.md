@@ -166,7 +166,9 @@ public class HdfsTest {
 </code></pre>
 
 - hadoop jar 파일 생성   
-> export > java > jar file > hadoop_lec.jar 
+> export > java > jar file > hadoop_lec.jar <br>
+
+> 또는 wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/hadoop_lec/build/hadoop_lec.jar
 
 - hadoop_lec.jar 파일 실행을 위해 서버로 복사
 > 위치 : /home/hdfs/hadoop_edu/jar
