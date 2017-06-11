@@ -90,8 +90,8 @@ rmr: DEPRECATED: Please use 'rm -r' instead.
 <pre><code>
 [hdfs@sandbox data]$ hadoop fs -mkdir /user/hdfs/input/acc
 [hdfs@sandbox data]$ hadoop fs -mkdir /user/hdfs/input/cas
-[hdfs@sandbox data]$ hadoop fs -copyFromLocal Accidents_2005_2015.csv /user/hdfs/input/acc
-[hdfs@sandbox data]$ hadoop fs -copyFromLocal Casualties_2005_2015.csv /user/hdfs/input/cas
+[hdfs@sandbox data]$ hadoop fs -copyFromLocal Accidents_2005_2015.csv /user/hdfs/input/acc/.
+[hdfs@sandbox data]$ hadoop fs -copyFromLocal Casualties_2005_2015.csv /user/hdfs/input/cas/.
 </code></pre>
 
 ## hdfs 실습 - HDFS API 활용
