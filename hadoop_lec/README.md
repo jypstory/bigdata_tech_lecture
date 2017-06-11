@@ -11,7 +11,7 @@ su - hdfs
 cd ~
 mkdir hadoop_edu
 mkdir data
-cd hadoop_ecu/data
+cd hadoop_edu/data
  
 # 영국 교통사고
 wget https://github.com/jypstory/bigdata_tech_lecture/raw/master/hadoop_lec/sample_data/DfTRoadSafety_Accidents.zip
