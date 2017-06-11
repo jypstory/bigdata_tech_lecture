@@ -37,7 +37,7 @@ Please retype the password for admin:
 
 
 - git clone으로 데이터 load
-> su - hdfs
+> su - hdfs <br>
 > git clone https://github.com/jypstory/bigdata_tech_lecture.git
 
 > 만약 접근이 안된다면 ping 8.8.8.8 수행으로 외부망 오픈 확인 (구글DNS)
