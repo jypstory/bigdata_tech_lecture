@@ -34,3 +34,14 @@ Please retype the password for admin:
 - ambari에 admin 로그인  
 
 > http://sandbox.hortonworks.com:8080 
+
+
+- git clone으로 데이터 load
+> su - hdfs
+> git clone https://github.com/jypstory/bigdata_tech_lecture.git
+
+> 만약 접근이 안된다면 ping 8.8.8.8 수행으로 외부망 오픈 확인 (구글DNS)
+> 안될경우 /etc/resolv.conf 파일 오픈 후   아래 내용 수정
+<pre><code>
+nameserver 168.126.63.1
+</code></pre>
