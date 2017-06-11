@@ -174,7 +174,7 @@ public class HdfsTest {
 - run hdfs
 <pre><code>
 [hdfs@sandbox jar]$ cd /home/hdfs/hadoop_edu/jar
-[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar HdfsTest
+[hdfs@sandbox jar]$ hadoop jar hadoop_lec.jar hdfs.HdfsTest
 [hdfs@sandbox jar]$ hadoop fs -ls /user/hdfs/input/acc/
 Found 2 items
 -rw-r--r--   1 hdfs hdfs  244379141 2017-03-25 12:03 /user/hdfs/input/acc/Accidents_2005_2015.csv
